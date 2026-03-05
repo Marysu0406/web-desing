@@ -10,18 +10,25 @@
 /* =========================
    BODY / PAGE
 ========================= */
-.page {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
+.page{
+    font-family: "Segoe UI", sans-serif;
+    background-image: url("../img/background.png");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+
     min-height: 100vh;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .page__main {
     width: 100%;
+    display: flex;
+    justify-content: center;   
+    align-items: center;
     padding: 20px;
 }
 
@@ -30,12 +37,12 @@
 ========================= */
 .card {
     max-width: 420px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    border: 1px solid #dee2e6;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
 
 .card__header {
@@ -43,16 +50,15 @@
     margin-bottom: 25px;
 }
 
-.card__title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #212529;
-    margin-bottom: 8px;
+.card__title{
+    font-size: 26px;
+    font-weight: 700;
+    color: #2c3e50;
 }
 
-.card__subtitle {
-    font-size: 0.95rem;
+.card__subtitle{
     color: #6c757d;
+    font-size: 14px;
 }
 
 .card__footer {
@@ -77,6 +83,7 @@
     display: block;
     font-size: 0.9rem;
     margin-bottom: 6px;
+    margin-left: 45px;
     color: #495057;
     font-weight: 500;
 }
@@ -88,12 +95,16 @@
 
 .form__input,
 .form__select {
+
     width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ced4da;
-    border-radius: 6px;
+    padding: 12px 14px;
+
+    border-radius: 10px;
+    border: 1px solid #dcdfe6;
+
+    background-color: #f7f9fc;
+
     font-size: 0.95rem;
-    transition: all 0.2s ease;
 }
 
 .form__input:focus,
@@ -127,6 +138,7 @@
 .form__group--checkbox {
     display: flex;
     align-items: center;
+    justify-content: center; /* centra horizontalmente */
 }
 
 .form__checkbox {
@@ -140,13 +152,14 @@
 ========================= */
 .button {
     display: inline-block;
-    padding: 10px 16px;
+    padding: 12px 18px;
     font-size: 1rem;
-    border-radius: 6px;
+    border-radius: 999px; /* esto lo hace ultra redondo */
     border: 1px solid transparent;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
+
 
 .button--primary {
     background-color: #0d6efd;
@@ -157,6 +170,8 @@
 .button--primary:hover {
     background-color: #0b5ed7;
     border-color: #0a58ca;
+    transform: translateY(-2px); /* efecto elevación */
+    box-shadow: 0 6px 14px rgba(13, 110, 253, 0.25);
 }
 
 .button--full {
@@ -166,6 +181,7 @@
 /* =========================
    SOCIAL LOGIN
 ========================= */
+
 .social-login {
     display: flex;
     justify-content: center;
@@ -173,31 +189,189 @@
 }
 
 .social-login__link {
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
     text-decoration: none;
     font-size: 0.9rem;
-    padding: 8px 12px;
-    border-radius: 6px;
+
+    padding: 8px 14px;
+
+    border-radius: 8px;
     border: 1px solid #dee2e6;
+
     color: #495057;
+
     transition: all 0.2s ease;
+}
+
+.social-login__link i{
+    font-size:14px;
 }
 
 .social-login__link:hover {
     background-color: #f1f3f5;
 }
+/* =========================
+   INPUT CON ICONOS
+========================= */
 
-/* Colores estilo Bootstrap */
-.social-login__link--google:hover {
-    border-color: #db4437;
-    color: #db4437;
+.form__input-icon{
+    position: relative;
 }
 
-.social-login__link--facebook:hover {
-    border-color: #1877f2;
-    color: #1877f2;
+.form__icon{
+
+    position:absolute;
+
+    left:12px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:14px;
+    opacity:0.6;
+
 }
 
-.social-login__link--apple:hover {
-    border-color: #000000;
-    color: #000000;
+/* mover texto del input para que no choque con icono */
+
+.form__input{
+    padding-left:38px;
+}
+
+/* =========================
+   SOCIAL ICONS
+========================= */
+
+.social-login{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    gap:20px;
+}
+
+.social-login__icon{
+    font-size:24px;
+    text-decoration:none;
+    color:#6c757d;
+    transition:all 0.2s ease;
+}
+
+/* colores originales */
+.social-login__icon svg{
+width:24px;
+height:24px;
+display: block;
+}
+.social-login__icon--facebook{
+    color:#1877f2;
+}
+
+.social-login__icon--apple{
+    color:#000000;
+}
+
+/* efecto hover */
+
+.social-login__icon:hover{
+    transform:scale(1.15);
+}
+
+.form__input-wrapper{
+    position: relative;
+}
+
+.form__icon{
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9aa0a6;
+    font-size: 14px;
+}
+
+.form__input{
+    padding-left: 36px;
+}.card__divider{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.card__divider::before,
+.card__divider::after{
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #dee2e6;
+}
+
+.card__divider-text{
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 40px;
+
+    font-size: 15px;
+}
+
+.navbar__logo{
+    font-weight: 700;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.navbar__menu{
+    display: flex;
+    gap: 25px;
+}
+
+.navbar__link{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.navbar__link:hover{
+    color: #0d6efd;
+}
+
+.navbar__link--login{
+    font-weight: 600;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.footer__text{
+    font-size: 0.85rem;
+    color: #6c757d;
 }
